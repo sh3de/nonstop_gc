@@ -1,11 +1,12 @@
-import asyncio
-import struct
 import sys
 import os
 
-# Добавляем папку proto в пути импорта
-sys.path.append(os.path.join(os.path.dirname(__file__), 'proto'))
+# 1. Сначала добавляем папку proto в путь поиска модулей
+proto_path = os.path.join(os.path.dirname(__file__), 'proto')
+if proto_path not in sys.path:
+    sys.path.insert(0, proto_path)
 
+# 2. Только ПОСЛЕ этого импортируем протобуфы
 import gcsystemmsgs_pb2 as gc_sys
 import cstrike15_gcmessages_pb2 as csgo_pb
 
