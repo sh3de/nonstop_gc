@@ -1,4 +1,5 @@
 import asyncio
+import struct
 import sys
 import os
 
