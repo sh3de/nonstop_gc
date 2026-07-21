@@ -1,12 +1,15 @@
 import sys
 import os
-from proto import gcsystemmsgs_pb2 as gc_sys
-from proto import cstrike15_gcmessages_pb2 as csgo_pb
 
-# 1. Сначала добавляем папку proto в путь поиска модулей
-proto_path = os.path.join(os.path.dirname(__file__), 'proto')
-if proto_path not in sys.path:
-    sys.path.insert(0, proto_path)
+# 1. Добавляем абсолютный путь к папке proto в sys.path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'proto'))
+
+# 2. Импортируем модули напрямую (без "from proto import")
+import gcsystemmsgs_pb2 as gc_sys
+import cstrike15_gcmessages_pb2 as csgo_pb
+import steammessages_pb2 as steam_pb
+import engine_gcmessages_pb2 as engine_pb
+
 
 # ID сообщений CS:GO GC
 MSG_CLIENT_HELLO = 9109
