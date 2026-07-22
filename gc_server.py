@@ -115,7 +115,7 @@ async def main():
     gc = CSGOGameCoordinator()
     
     # Запускаем сервер на порту 8080 (или process.env.PORT для Render)
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 10000))
     server = await asyncio.start_server(gc.handle_client, '0.0.0.0', port)
 
     print(f"🚀 GC Server (Python) запущен на порту {port}...")
